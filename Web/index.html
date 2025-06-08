@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Home - Light Chart</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='hinhanh.css') }}">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Symbols+Sharp" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+</head>
+
+<body>
+  <aside class="sidebar">
+    <div class="table" onclick="switchTab('tab1')">
+      <div class="icon-sidebar" style="margin-right: 5px;">
+        <span class="material-symbols-sharp">bar_chart</span>
+      </div>
+      <h2 style="font-size: 15px;">Chart</h2>
+    </div>
+  </aside>
+
+  <div id="tab1" class="tab active container">
+    <main>
+      <div class="info1">
+        <!-- Chỉ giữ lại ô ánh sáng -->
+        <div class="info-box">
+          <div class="title-container">
+            <h2>Ánh sáng</h2>
+            <div class="icon"><span class="material-symbols-sharp">dark_mode</span></div>
+          </div>
+          <p id="light-value">
+            <span class="value">Đang tải...</span>
+            <span class="unit">lux</span>
+          </p>
+        </div>
+      </div>
+      <div class="toggle-switch-container">
+        <div class="toggle-switch">
+          <label>
+            <img src="https://img.icons8.com/ios-filled/50/000000/light-off.png" alt="Light Bulb Icon" width="50"
+              height="50" class="light-bulb">
+            <input id="led1" type="checkbox" class="toggle-light">
+            <span class="slider"></span>
+          </label>
+          <p class="switch-status">OFF</p>
+        </div>
+        <!-- <div class="toggle-switch">
+            <label>
+              <img src="https://img.icons8.com/ios-filled/50/000000/light-off.png" alt="Light Bulb Icon"
+                width="50" height="50" class="light-bulb">
+              <input id="led2" type="checkbox" class="toggle-light">
+              <span class="slider"></span>
+            </label>
+            <p class="switch-status">OFF</p>
+          </div> -->
+      </div>
+  </div>
+  </main>
+  </div>
+  <script src="{{ url_for('static', filename='light.js') }}"></script>
+</body>
+
+</html>
